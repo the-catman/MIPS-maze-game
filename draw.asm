@@ -1,4 +1,7 @@
 draw: # $a0: The image's base address, $a1: the image's width (x axis), $a2: the image's height (y axis), $a3: offset
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	
 	li $t0, 0x10010000 # Base address for display
 
 	sll $a3, $a3, 2
@@ -29,4 +32,8 @@ draw: # $a0: The image's base address, $a1: the image's width (x axis), $a2: the
 			blt $t1, $a1, drawLoop2
 		addi $t2, $t2, 1
 		blt $t2, $a2 drawLoop1
+
+	lw $ra, 0($sp)
+	addi $sp, $sp, 4
+
 	jr $ra
