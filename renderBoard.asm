@@ -19,9 +19,9 @@ renderBoard: # $s0: Board address
 			addi $a3, $a3, 65664
 			# $a3 = j * 8 + i * 512 + 65664
 			
-			la $t2, images
+			la $t2, tiles
 
-			la $t4, boardAddress
+			la $t4, board
 			lw $t4, 0($t4)
 			add $t3, $t0, $t4
 			lb $t3, 0($t3)

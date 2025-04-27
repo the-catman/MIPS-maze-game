@@ -1,10 +1,9 @@
-loadImageToMemory: # $a0: file name, $a1: image size, $a2: index to be stored
+loadImageToMemory: # $a0: file name, $a1: image size, $a2: index to be stored, $a3: memory location
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 
-	la $t0, images
 	sll $t3, $a2, 2
-	add $t3, $t3, $t0
+	add $t3, $t3, $a3
 
 	jal readImage # reads the image, and stores the pointer in $v0
 
