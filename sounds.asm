@@ -149,13 +149,13 @@ game_over_sound:
     addi $sp, $sp, 4
     jr $ra
 
-game_win_sound:
+you_win_sound:
     addi $sp, $sp, -4
     sw $ra, 0($sp)
 
     li $v0, 31
     li $a0, 60
-    li $a1, 3500
+    li $a1, 1500
     li $a2, 126
     li $a3, 110
     syscall
